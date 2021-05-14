@@ -11,8 +11,6 @@ namespace WebApplication
     {
         static async Task Main(string[] args)
         {
-            //var tasks = postsIds.Select(postsIds => postHandler.GetPostAsync(uri, postsIds));
-
             var postsIds = new List<int>() { 4, 5, 6, 7, 8, 9, 10, 11, 12, 13 };
             var uri = "https://jsonplaceholder.typicode.com/posts/";
             var fileName = "result.txt";
