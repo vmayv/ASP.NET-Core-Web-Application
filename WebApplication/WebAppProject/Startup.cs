@@ -11,6 +11,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using WebAppProject.Data.Implemantation;
+using WebAppProject.Data.Interfaces;
 
 namespace WebAppProject
 {
@@ -26,6 +28,7 @@ namespace WebAppProject
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddScoped<IPersonRepository, PersonRepository>();
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {

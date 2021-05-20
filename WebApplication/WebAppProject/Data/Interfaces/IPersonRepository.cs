@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using WebAppProject.Models;
 
 namespace WebAppProject.Data.Interfaces
 {
-    public class IPersonRepository
+    public interface IPersonRepository : IRepository<Person>
     {
     }
 }
