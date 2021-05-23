@@ -9,7 +9,7 @@ namespace WebAppProject.Data.Implemantation
 {
     public class PersonRepository : IPersonRepository
     {
-        private List<Person> data = new List<Person>() {
+        private static List<Person> data = new List<Person>() {
 new Person { Id = 1, FirstName = "Veda", LastName = "Richmond", Email = "ligula@necluctus.edu", Company = "Quisque Ac Libero LLP",Age = 42 },
 new Person { Id = 2, FirstName = "Demetria", LastName = "Andrews", Email = "feugiat.metus@penatibuset.org", Company = "Nulla Facilisi Foundation", Age = 31 },
 new Person { Id = 3, FirstName = "Byron", LastName = "Holmes", Email = "neque.Sed.eget@non.co.uk", Company = "Et Associates", Age = 63 },
