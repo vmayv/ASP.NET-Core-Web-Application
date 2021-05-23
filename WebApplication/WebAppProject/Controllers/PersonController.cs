@@ -22,42 +22,42 @@ namespace WebAppProject.Controllers
             _personManager = personManager;
         }
 
-        [HttpGet]
+        [HttpGet("persons/getById")]
         public IActionResult GetById(int id)
         {
             var person = _personManager.GetById(id);
             return Ok(person);
         }
-        
-        [HttpGet]
+
+        [HttpGet("persons/search")]
         public IActionResult FindByName(string term)
         {
             var person = _personManager.Find(term);
             return Ok(person);
         }
         
-        [HttpGet]
+        [HttpGet("persons/getListofPersons")]
         public IActionResult GetListOfPersons(int skip, int take)
         {
             var persons = _personManager.GetListOfItems(skip, take);
             return Ok(persons);
         }
         
-        [HttpPost]
+        [HttpPost("persons/add")]
         public IActionResult Add([FromBody] CreatePersonRequest personDto)
         {
             var id = _personManager.CreateItem(personDto);
             return Ok(id);
         }
         
-        [HttpPut]
+        [HttpPut("persons/edit")]
         public IActionResult Edit([FromBody] EditPersonRequest personDto)
         {
             var x = _personManager.EditItem(personDto);
             return Ok(x);
         }
         
-        [HttpDelete]
+        [HttpDelete("persons/delete")]
         public IActionResult Delete([FromQuery] int id)
         {
             _personManager.DeleteItem(id);

@@ -75,7 +75,7 @@ new Person { Id = 50, FirstName = "Ramona", LastName = "Gilliam", Email = "massa
 
         public int DeleteItem(int id)
         {
-            var person = data.Find(x => x.Id == id);
+            var person = data.Where(x => x.Id == id).FirstOrDefault();
             var outerId = person.Id;
             var innerId = data.IndexOf(person);
             data.RemoveAt(innerId);
