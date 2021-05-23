@@ -8,9 +8,10 @@ namespace WebAppProject.Data.Interfaces
     public interface IRepository<T>
     {
         T GetById(int id);
-        T Find(string term);
+        int GetLastId();
+        List<T> Find(string term);
         List<T> GetListOfItems(int skip, int take);
-        int CreateItem();
+        int CreateItem(T item);
         int EditItem(T item);
         int DeleteItem(int id);
 

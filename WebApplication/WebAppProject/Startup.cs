@@ -13,6 +13,8 @@ using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using WebAppProject.Data.Implemantation;
 using WebAppProject.Data.Interfaces;
+using WebAppProject.Domain.Implementation;
+using WebAppProject.Domain.Interfaces;
 
 namespace WebAppProject
 {
@@ -29,6 +31,7 @@ namespace WebAppProject
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddScoped<IPersonRepository, PersonRepository>();
+            services.AddScoped<IPersonManager, PersonManager>();
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {

@@ -62,24 +62,48 @@ new Person { Id = 49, FirstName = "Jenette", LastName = "Dejesus", Email = "adip
 new Person { Id = 50, FirstName = "Ramona", LastName = "Gilliam", Email = "massa.Vestibulum@lectuspede.ca", Company = "Imperdiet Dictum LLP", Age = 24 },
  };
 
-        public int CreateItem()
+        public int GetLastId()
         {
-            throw new NotImplementedException();
+            return data.Last().Id;
+        }
+        
+        public int CreateItem(Person item)
+        {
+            data.Add(item);
+            return item.Id;
         }
 
         public int DeleteItem(int id)
         {
-            throw new NotImplementedException();
+            var person = data.Find(x => x.Id == id);
+            var outerId = person.Id;
+            var innerId = data.IndexOf(person);
+            data.RemoveAt(innerId);
+            return outerId;
         }
 
         public int EditItem(Person item)
         {
-            throw new NotImplementedException();
+            var person = data.Where(x => x.Id == item.Id).FirstOrDefault();
+            if (person != null)
+            {
+                person.Age = item.Age;
+                person.Company = item.Company;
+                person.Email = item.Email;
+                person.FirstName = item.FirstName;
+                person.LastName = item.LastName;
+            }
+            else
+            {
+                return -1;
+            }
+
+            return person.Id;
         }
 
-        public Person Find(string term)
+        public List<Person> Find(string term)
         {
-            throw new NotImplementedException();
+            return data.FindAll(x => x.FirstName == term);
         }
 
         public Person GetById(int id)
@@ -89,7 +113,7 @@ new Person { Id = 50, FirstName = "Ramona", LastName = "Gilliam", Email = "massa
 
         public List<Person> GetListOfItems(int skip, int take)
         {
-            throw new NotImplementedException();
+            return data.FindAll(x => x.Id > skip && x.Id < take);
         }
     }
 }
